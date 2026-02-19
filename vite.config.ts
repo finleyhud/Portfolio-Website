@@ -7,9 +7,10 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
-    // 'base: "/"' is used for custom domains (e.g. finhudsonportfolio.com).
-    // If you remove the custom domain later, change this back to './'
-    base: '/', 
+    // IMPORTANT: This must match your GitHub repository name exactly.
+    // If your repo is https://github.com/finleyhud/Portfolio-Website
+    // then this must be '/Portfolio-Website/'
+    base: '/Portfolio-Website/', 
     define: {
       // Polyfill process.env.API_KEY so the Google GenAI SDK works
       'process.env.API_KEY': JSON.stringify(env.API_KEY)

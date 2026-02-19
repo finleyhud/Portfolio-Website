@@ -7,7 +7,7 @@ const ChatWidget: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { role: 'model', text: "Hi! I'm Alex's AI assistant. Ask me anything about their work, skills, or experience." }
+    { role: 'model', text: "Hi! I'm Finley's AI assistant. Ask me anything about their work, skills, or experience." }
   ]);
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);

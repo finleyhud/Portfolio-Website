@@ -18,10 +18,10 @@ export const initializeChat = () => {
   chatSession = client.chats.create({
     model: 'gemini-3-flash-preview',
     config: {
-      systemInstruction: `You are the AI portfolio assistant for Alex. 
-      Your goal is to answer questions about Alex's work, skills, and experience in a professional yet friendly tone.
+      systemInstruction: `You are the AI portfolio assistant for Finley. 
+      Your goal is to answer questions about Finley's work, skills, and experience in a professional yet friendly tone.
       Keep answers concise (under 50 words) unless asked for details.
-      Use the following context about Alex:
+      Use the following context about Finley:
       ${RESUME_CONTEXT}`,
     },
   });
@@ -41,7 +41,10 @@ export const sendMessageStream = async function* (message: string) {
   try {
     const result = await chatSession.sendMessageStream({ message });
     for await (const chunk of result) {
-      yield chunk.text;
+      const text = chunk.text;
+      if (text) {
+        yield text;
+      }
     }
   } catch (error) {
     console.error("Gemini Error:", error);
